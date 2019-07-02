@@ -1,39 +1,30 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Table from './Table';
-import Form from './Form';
+import Main from './components/main';
+import Activities from './components/Activities';
+import Objectives from './components/Objectives';
+import Obituaries from './components/Obituaries';
+import Gallery from './components/Gallery';
+import Board from './components/Board';
 
 class App extends Component {
 
-  state = {
-    characters: [],
-  }
-
-  removeCharacter = index => {
-    const { characters } = this.state;
-    this.setState({
-      characters: characters.filter((character, i) => {
-        console.log('index+++', index)
-        return i !== index
-      }) 
-    }) 
-  }
-
-  handleSubmit  = character => {
-    this.setState({
-      characters: [...this.state.characters, character]
-    });
-  }  
-  render () {
-    const { characters } = this.state;
+  render(){
     return (
-      <div className = 'container'>
-        <Table characterData = { characters } removeCharacter = {this.removeCharacter} />
-        <Form handleSubmit = {this.handleSubmit}/>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path='/' component = {Main} />
+          <Route exact path='/activities' component={Activities}/>
+          <Route exact path='/objectives' component={Objectives}/>
+          <Route exact path='/obituaries' component={Obituaries}/>
+          <Route exact path='/gallery' component={Gallery}/>
+          <Route exact path='/board' component={Board}/>
+          {/* <Route componet={NotFound} /> */}
+        </Switch>
+      </Router>
     );
   }
-  
 }
 
 export default App;
