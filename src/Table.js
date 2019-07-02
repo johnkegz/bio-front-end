@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from 'prop-types';
+import { fetchBio } from "./redux/actions/actions";
 
 const TableHeabder = () => {
   return (
@@ -24,20 +27,43 @@ const TableBody = props => {
   ));
   return <tbody>{rows}</tbody>;
 };
+
 class Table extends Component {
+
+
+  renderButton() {
+    return <button onClick={() => this.props.fetchBio(2) }>click</button>;
+  }
   render() {
+    console.log('props++', this.props);
     const { characterData, removeCharacter } = this.props;
-    console.log('props+++', this.props);
     return (
-      <table>
-        <TableHeabder />
-        <TableBody
-          characterData = {characterData}
-          removeCharacter = {removeCharacter}
-        />
-      </table>
+      <div>
+        {this.renderButton()}
+        <table>
+          <TableHeabder />
+          <TableBody
+            characterData={characterData}
+            removeCharacter={removeCharacter}
+          />
+        </table>
+      </div>
     );
   }
 }
+Table.propTypes = {
+  
+  bio: PropTypes.array,
+  
+};
+const mapStateToProps = state => ({
+  bioData: state.bioReducer
+});
+const mapDispatchToProps = ({
+  fetchBio
+});
 
-export default Table;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Table);

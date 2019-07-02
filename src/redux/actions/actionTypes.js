@@ -1,0 +1,3 @@
+export const FETCH_BIO = 'FETCH_BIO';
+export const FETCH_BIO_SUCCESS = 'FETCH_BIO_SUCCESS';
+export const FETCH_BIO_FAILURE = 'FETCH_BIO_FAILURE';
