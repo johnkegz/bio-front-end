@@ -10,7 +10,7 @@ class Header extends Component {
         <div className="row nav-menu">
         <div className="col-md-1"></div>
         <div className="col-md-3 educators-title">
-          <img src="img/logo5.jpg" className="logo" />
+          <img src="img/logo5.jpg" className="logo" alt="" />
           Bio
       </div>
       <div className="col-md-6 nv">
@@ -22,7 +22,7 @@ class Header extends Component {
                     <li><NavLink exact to="/gallery">Gallery</NavLink></li>
                     <li><NavLink exact to="/board">Board</NavLink></li>
                     <li><NavLink exact to="/contact us">Contact us</NavLink></li>
-                    <li><span className="glyphicon glyphicon-search" onclick='displySearch();'>search</span></li>
+                    <li><span className="glyphicon glyphicon-search" >search</span></li>
         </ul>
         </div>
         <div className="col-md-2"></div>

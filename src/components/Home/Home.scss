@@ -1,0 +1,124 @@
+.main-body{
+    background-color: #80d4ff;
+}
+.column {
+    float: left;
+    width: 32%;
+    padding: 1px;
+    display: block;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+        
+.c {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+
+.c img{
+  min-height: 200px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  background-color: #000000;
+  overflow: hidden;
+  width: 100%;
+  top:0%;
+  bottom: 0%;
+  -webkit-transform:scale(0);
+  transition: .3s ease;
+}
+
+.c:hover .overlay {
+  transform: scale(1)
+}
+
+.text {
+  color: #ffffff;
+  font-size: 20px;
+  position: absolute;
+  padding-top: 20%;
+  left: 50%;
+  transform: translate(-50%, -32%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.text2 {
+  color: #ffffff;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.adverts{
+    display:inline-block;
+    width: 20%;
+    }
+    
+.vist{
+    border: 1px solid black;
+}
+.column{
+  position: relative;
+  /*text-align: center;*/
+  
+}
+.ad{
+    width: 100%;
+}
+
+.ad-heading{
+    text-align: center;
+}
+
+.ad-word{
+    
+  position: relative;
+  color:yellow;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+@media (max-width: 500px) {
+    
+}
+@media (max-width: 500px) {
+    
+    .ad{
+        width:50%;
+    }
+    .ad-heading{
+}
+.column{
+  /*position: relative;*/
+  /*text-align: bottom;*/
+  
+}
+.ad-word{
+  /*position: absolute;*/
+  font-size:10px;
+  /*transform: translate(-50%, -50%);*/
+  color:yellow;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+    
+}
