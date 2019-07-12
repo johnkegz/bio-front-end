@@ -8,3 +8,9 @@ export const FETCH_ONE_PERSON = 'FETCH_ONE_PERSON';
 export const FETCH_ONE_PERSON_SUCCESS = 'FETCH_ONE_PERSON_SUCCESS';
 export const FETCH_ONE_PERSON_FAILURE = 'FETCH_ONE_PERSON_FAILURE';
 /**End of get one person Bio */
+
+/**handle submit */
+export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
+export const HANDLE_SUBMIT_SUCCESS = 'HANDLE_SUBMIT_SUCCESS';
+export const HANDLE_SUBMIT_FAILURE = 'HANDLE_SUBMIT_FAILURE';
+/**End handleSubmit*/

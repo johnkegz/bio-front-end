@@ -7,8 +7,11 @@ class BioApi {
     }
 
     static async getOnePerson(id) {
-        // console.log('`${url}/${id}`', axios.get(`${url}/${id}`));
         return axios.get(`${url}/${id}`);
+    }
+
+    static async handleSubmit(data) {
+        return axios.post(url, data);
     }
 }
 

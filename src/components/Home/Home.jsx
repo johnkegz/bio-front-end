@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import ReactHtmlParser from 'react-html-parser';
+
 import { Link } from "react-router-dom";
 import { fetchBio, getOnePerson } from "../../redux/actions/actions";
 import Header from "../Header/Header";
@@ -17,10 +19,8 @@ class Home extends Component {
 				var yyyy = today.getFullYear();
 
 				today = mm + '/' + dd + '/' + yyyy;
-				console.log('today ++', today);
-				if (today === '7/3/2019'){
-          console.log('today        +++', today);
-          this.props.getOnePerson(43);
+				if (today === '7/8/2019'){
+          this.props.getOnePerson(2);
 				}
 				else if(today === '6/18/2019'){
 					this.props.getOnePerson(1);
@@ -139,7 +139,9 @@ class Home extends Component {
   }
    /*Render slider */
   renderPeople = image => {
-    return image.map(info => (
+    return image.map(info => {
+		
+		return(
       <div key={info.id}>
         <div className="c">
           <img src={logo} alt="nknknk" />
@@ -151,7 +153,7 @@ class Home extends Component {
           </a>
         </div>
       </div>
-    ));
+    )});
   };
   renderSlider = images => {
     return (
@@ -169,13 +171,15 @@ class Home extends Component {
   /*End of render slider */
    /*Render main body*/
    renderShortBio = () => {
-    const {singlePerson: {data}} = this.props;
+	const {singlePerson: {data}} = this.props;
+	const id = 1;
     return data ? (
       <div>
         <p className="educ-of-the-day">Educator of the Day</p>
         <p className="name">{data.name}</p>
-        {data.bio}
-        <Link to='/content'>read more...</Link>
+		
+        <div className="bio">{ ReactHtmlParser(data.bio) }</div>
+        <Link to={`/content/${id}`}>read more...</Link>
       </div>
       ): '';
    }
@@ -211,7 +215,7 @@ class Home extends Component {
       bio: { data }
     } = this.props;
     const images = data;
-    console.log('this.props', this.props);
+    console.log('Home props', this.props);
     return (
       <div>
         <Header />

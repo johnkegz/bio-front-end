@@ -5,6 +5,9 @@ import {
     FETCH_ONE_PERSON,
     FETCH_ONE_PERSON_SUCCESS,
     FETCH_ONE_PERSON_FAILURE,
+    HANDLE_SUBMIT,
+    HANDLE_SUBMIT_SUCCESS,
+    HANDLE_SUBMIT_FAILURE
 
 } from './actionTypes';
 /**fetch all */
@@ -39,3 +42,20 @@ export const getOnePersonFailure = (error) => ({
     error
 });
 /**End of fetch one */
+
+/**handle submit */
+export const handleSubmit = (data) => ({
+    type: HANDLE_SUBMIT,
+    data
+});
+
+export const handleSubmitSuccess = (response) => ({
+    type: HANDLE_SUBMIT_SUCCESS,
+    response
+});
+
+export const handleSubmitFailure = (error) => ({
+    type: HANDLE_SUBMIT_FAILURE,
+    error
+});
+/**end of handle submit */

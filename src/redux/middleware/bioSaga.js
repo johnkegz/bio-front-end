@@ -3,17 +3,19 @@ import {
     fetchBioSuccess, 
     fetchBioFailure,
     getOnePersonSuccess,
-    getOnePersonFailure
+    getOnePersonFailure,
+    handleSubmitSuccess,
+    handleSubmitFailure
 } from '../actions/actions';
 import BioApi from '../api/bioApi';
 import { 
     FETCH_BIO,
-    FETCH_ONE_PERSON
+    FETCH_ONE_PERSON,
+    HANDLE_SUBMIT
 } from '../actions/actionTypes';
 
 /**Fetch all */
 export function* fetchBio() {
-   
     try{
         const response = yield call(BioApi.fetchBio);
         yield put(fetchBioSuccess(response.data));
@@ -32,11 +34,9 @@ export function* watchFetchBio() {
 export function* getOnePerson(action) {
     try{
         const response = yield call(BioApi.getOnePerson, action.id);
-        console.log('saga +++ ++ response', response);
         yield put(getOnePersonSuccess(response.data));
     }
     catch(error){
-        console.log('errrr +++ ++ ', error);
         yield put(getOnePersonFailure(error));
     }
 }
@@ -44,3 +44,20 @@ export function* getOnePerson(action) {
 export function* watchFetchOnePersonBio() {
     yield takeEvery(FETCH_ONE_PERSON, getOnePerson);
 }
+
+
+/**Handle submit */
+export function* handleSubmit(action) {
+    try{
+        const response = yield call(BioApi.handleSubmit, action.data);
+        yield put(handleSubmitSuccess(response));
+    }
+    catch(error){
+        yield put(handleSubmitFailure(error));
+    }
+}
+
+export function* watchhandlesubmit() {
+    yield takeEvery(HANDLE_SUBMIT, handleSubmit);
+}
+/**End of Handle submit */

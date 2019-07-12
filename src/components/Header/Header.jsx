@@ -15,7 +15,7 @@ class Header extends Component {
       </div>
       <div className="col-md-6 nv">
         <ul className='navigation' id='navigation'>
-                    <li><NavLink exact to="/">Home</NavLink></li>
+                    <li><a href='/'>Home</a></li>
                     <li><NavLink exact to="/activities">Activities</NavLink></li>
                     <li><NavLink exact to="/objectives">Objectives</NavLink></li>
                     <li><NavLink exact to="/obituaries">Obituaries</NavLink></li>

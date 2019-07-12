@@ -8,6 +8,10 @@ import Obituaries from './components/Obituaries';
 import Gallery from './components/Gallery';
 import Board from './components/Board';
 import Content from './components/Content/Content';
+import Forms from './components/Forms/Forms';
+// import SmartEditor from './components/Editor/SmartEditor';
+import RichTextExample from './components/Editor/SmartEditor';
+
 
 class App extends Component {
 
@@ -21,7 +25,9 @@ class App extends Component {
           <Route exact path='/obituaries' component={Obituaries}/>
           <Route exact path='/gallery' component={Gallery}/>
           <Route exact path='/board' component={Board}/>
-          <Route exact path='/content' component={Content}/>
+          <Route exact path='/content/:id' component={Content}/>
+          <Route exact path='/forms' component={Forms}/>
+          <Route exact path='/smarteditor' component={RichTextExample}/>
           {/* <Route componet={NotFound} /> */}
         </Switch>
       </Router>

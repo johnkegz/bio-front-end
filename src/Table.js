@@ -35,7 +35,6 @@ class Table extends Component {
     return <button onClick={() => this.props.fetchBio(2) }>click</button>;
   }
   render() {
-    console.log('props++', this.props);
     const { characterData, removeCharacter } = this.props;
     return (
       <div>
