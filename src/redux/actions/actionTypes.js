@@ -14,3 +14,9 @@ export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
 export const HANDLE_SUBMIT_SUCCESS = 'HANDLE_SUBMIT_SUCCESS';
 export const HANDLE_SUBMIT_FAILURE = 'HANDLE_SUBMIT_FAILURE';
 /**End handleSubmit*/
+
+/**Login */
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+/** end of Login */

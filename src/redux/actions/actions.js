@@ -7,7 +7,10 @@ import {
     FETCH_ONE_PERSON_FAILURE,
     HANDLE_SUBMIT,
     HANDLE_SUBMIT_SUCCESS,
-    HANDLE_SUBMIT_FAILURE
+    HANDLE_SUBMIT_FAILURE,
+    LOGIN,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
 
 } from './actionTypes';
 /**fetch all */
@@ -59,3 +62,20 @@ export const handleSubmitFailure = (error) => ({
     error
 });
 /**end of handle submit */
+
+/**Login */
+export const login = (data) => ({
+    type: LOGIN,
+    data
+});
+
+export const loginSuccess = (response) => ({
+    type: LOGIN_SUCCESS,
+    response
+});
+
+export const loginFailure = (err) => ({
+    type: LOGIN_FAILURE,
+    err
+});
+/** end of Login */

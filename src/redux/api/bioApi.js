@@ -7,11 +7,16 @@ class BioApi {
     }
 
     static async getOnePerson(id) {
-        return axios.get(`${url}/${id}`);
+        return axios.get(`${url}/login`);
     }
 
     static async handleSubmit(data) {
         return axios.post(url, data);
+    }
+
+    static async login(data) {
+        console.log('here ++', axios.post(`${url}/login`, data));
+        return axios.post(`${url}/login`, data);
     }
 }
 

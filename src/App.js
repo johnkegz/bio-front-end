@@ -9,6 +9,7 @@ import Gallery from './components/Gallery';
 import Board from './components/Board';
 import Content from './components/Content/Content';
 import Forms from './components/Forms/Forms';
+import Login from './components/Login';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path='/board' component={Board}/>
           <Route exact path='/content/:id' component={Content}/>
           <Route exact path='/forms' component={Forms}/>
+          <Route exact path='/login' component={Login}/>
           {/* <Route componet={NotFound} /> */}
         </Switch>
       </Router>
