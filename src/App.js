@@ -32,7 +32,6 @@ if(localStorageData) {
 }
   render(){
     this.setCurrentUser(localStorageData)
-    console.log('app props', this.props)
     return (
       <Router>
         <Switch>

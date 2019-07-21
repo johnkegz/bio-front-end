@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: true,
-                isAuthenticated: true,
+                isAuthenticated: action.response !== 0 ? true: false,
                 user: action.response
             }
         case LOGIN_FAILURE:

@@ -10,7 +10,8 @@ import {
     HANDLE_SUBMIT_FAILURE,
     LOGIN,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    LOGIN_FAILURE,
+    LOG_OUT
 
 } from './actionTypes';
 /**fetch all */
@@ -79,3 +80,9 @@ export const loginFailure = (err) => ({
     err
 });
 /** end of Login */
+
+/**Loug out user */
+export const logOut = () => ({
+    type: LOG_OUT
+});
+/**Loug out user */

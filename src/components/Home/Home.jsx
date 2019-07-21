@@ -215,7 +215,6 @@ class Home extends Component {
       bio: { data }
     } = this.props;
     const images = data;
-    console.log('Home props', this.props);
     return (
       <div>
         <Header />

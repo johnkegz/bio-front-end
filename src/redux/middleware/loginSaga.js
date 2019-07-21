@@ -6,7 +6,7 @@ import {
     loginFailure
 } from '../actions/actions';
 import { 
-    LOGIN 
+    LOGIN, LOG_OUT 
 } from '../actions/actionTypes';
 import setAuthToken from '../../utils/setAuthToken';
 
@@ -28,3 +28,20 @@ export function* watchLogin() {
     yield takeEvery(LOGIN, login);
 }
 /** end of Login */
+
+/**LOGOUT */
+export function* logOut() {
+    try{
+        localStorage.removeItem('jwtToken')
+        setAuthToken(false)
+        yield put(loginSuccess(0));
+    }
+    catch(error){
+        yield put(loginFailure(error));
+    }
+}
+
+export function* watchLoginOut() {
+    yield takeEvery(LOG_OUT, logOut);
+}
+/**END OF LOGOUT */

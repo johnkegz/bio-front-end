@@ -20,3 +20,7 @@ export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 /** end of Login */
+
+/**Loug out user */
+export const LOG_OUT = 'LOG_OUT'
+/**Loug out user */

@@ -14,7 +14,6 @@ class Content extends Component {
     this.props.getOnePerson(id);
   }
     renderContent = (data) =>{
-      // console.log('data ++++++++0++++', data);
         return (
           <div className="row" id = "main3" >
           <div className="col-md-1"></div>
