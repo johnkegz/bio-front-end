@@ -4,27 +4,34 @@ import { login } from '../../redux/actions/actions';
 
 class Login extends Component {
     initialState = {
-        username: '',
+        email: '',
         password: ''
     }
     state = this.initialState;
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.loginData.isAuthenticated){
+            this.props.history.push('/forms')
+        }
+    }
     handleChange = event =>  {
         const { name, value } = event.target;
         this.setState({
             [name]: value
         })
     }
-    handleSubmit = () => {
+    handleSubmit = e => {
+        e.preventDefault()
         this.props.login(this.state)
         this.setState(this.initialState)
     }
 
   render() {
-      const {username, password} = this.state;
+      const {email, password} = this.state;
     return (
     <div>
         <form>
-            <input type='text' name='username' value={username} onChange={this.handleChange}/>
+            <input type='text' name='email' value={email} onChange={this.handleChange}/>
             <input type='password' name='password' value={password} onChange={this.handleChange}/>
             <input type='submit' value='submit' onClick={this.handleSubmit} />
         </form>
@@ -32,7 +39,7 @@ class Login extends Component {
   }
 }
 const mapStateToProps = state =>  ({
-    login: state.loginReducer
+    loginData: state.loginReducer
 })
 const mapDispatchToProps = ({
     login

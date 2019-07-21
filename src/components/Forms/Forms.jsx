@@ -52,7 +52,6 @@ class Forms extends Component {
                     data={bio}
                     onChange={this.onEditorChange}
                     />
-                />
             </form>
         );
     }

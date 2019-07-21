@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8000/people';
+const url = 'http://localhost:8000/people/';
 class BioApi {
     static async fetchBio() {
         return axios.get(url);
@@ -11,12 +11,11 @@ class BioApi {
     }
 
     static async handleSubmit(data) {
-        return axios.post(url, data);
+        return axios.post(`${url}/people`, data);
     }
 
     static async login(data) {
-        console.log('here ++', axios.post(`${url}/login`, data));
-        return axios.post(`${url}/login`, data);
+        return axios.post('http://localhost:8000/user/login', data);
     }
 }
 
