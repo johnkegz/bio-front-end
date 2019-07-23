@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import ReactHtmlParser from 'react-html-parser';
 
 import { Link } from "react-router-dom";
-import { fetchBio, getOnePerson } from "../../redux/actions/actions";
+import { fetchBio, getAutoData } from "../../redux/actions/actions";
 import Header from "../Header/Header";
 import Footer from "../Footer";
 import logo from "./like.jpeg";
@@ -12,130 +12,18 @@ import "./Home.scss";
 
 class Home extends Component {
   componentWillMount() {
-    this.props.fetchBio();
-    var today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth()+1; 
-				var yyyy = today.getFullYear();
+	this.props.fetchBio();
+	this.props.getAutoData()
+    // var today = new Date();
+	// 			var dd = today.getDate();
+	// 			var mm = today.getMonth()+1; 
+	// 			var yyyy = today.getFullYear();
 
-				today = mm + '/' + dd + '/' + yyyy;
-				if (today === '7/8/2019'){
-          this.props.getOnePerson(2);
-				}
-				else if(today === '6/18/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/19/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/20/2019'){
-          this.props.getOnePerson(1);
-				}
-				else if(today === '6/21/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/22/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/23/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/24/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/25/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/26/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/27/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/28/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/29/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/30/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/22/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/23/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/24/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/25/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/26/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/27/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/28/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/29/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/30/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '7/1/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '7/2/2019'){
-					this.props.getOnePerson(1);
-				}
-				// else if(today === '7/3/2019'){
-				// 	this.props.getOnePerson(1);
-				// }
-				else if(today === '6/4/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/5/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/6/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/7/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/8/2019'){
-          this.props.getOnePerson(1);
-				}
-				else if(today === '6/9/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/10/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/11/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/12/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/13/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/14/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/15/2019'){
-					this.props.getOnePerson(1);
-				}
-				else if(today === '6/16/2019'){
-					this.props.getOnePerson(1);
-				}
+	// 			today = mm + '/' + dd + '/' + yyyy;
+	// 			if (today === '7/8/2019'){
+    //       this.props.getOnePerson(2);
+	// 			}
+				
   }
    /*Render slider */
   renderPeople = image => {
@@ -171,15 +59,14 @@ class Home extends Component {
   /*End of render slider */
    /*Render main body*/
    renderShortBio = () => {
-	const {singlePerson: {data}} = this.props;
-	const id = 1;
+	const {autoData: {data}} = this.props;
     return data ? (
       <div>
         <p className="educ-of-the-day">Educator of the Day</p>
         <p className="name">{data.name}</p>
 		
         <div className="bio">{ ReactHtmlParser(data.bio) }</div>
-        <Link to={`/content/${id}`}>read more...</Link>
+        <Link to={`/content/${data.id}`}>read more...</Link>
       </div>
       ): '';
    }
@@ -214,7 +101,8 @@ class Home extends Component {
     const {
       bio: { data }
     } = this.props;
-    const images = data;
+	const images = data;
+	console.log('this.props ++', this.props);
     return (
       <div>
         <Header />
@@ -230,11 +118,13 @@ Home.propTypes = {
 };
 const mapStateToProps = state => ({
   bio: state.bioReducer,
-  singlePerson: state.singlePersonreducer
+//   singlePerson: state.singlePersonreducer,
+  autoData: state.autoReducer
 });
 const mapDispatchToProps = {
   fetchBio,
-  getOnePerson
+//   getOnePerson
+	getAutoData
 };
 
 export default connect(

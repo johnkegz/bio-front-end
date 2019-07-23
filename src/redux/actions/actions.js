@@ -11,7 +11,10 @@ import {
     LOGIN,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
-    LOG_OUT
+    LOG_OUT,
+    AUTO_DATA,
+    AUTO_DATA_SUCCESS,
+    AUTO_DATA_FAILURE
 
 } from './actionTypes';
 /**fetch all */
@@ -86,3 +89,19 @@ export const logOut = () => ({
     type: LOG_OUT
 });
 /**Loug out user */
+
+/**Auto data */
+export const getAutoData = () => ({
+    type: AUTO_DATA
+});
+
+export const getAutoDataSuccess = (response) => ({
+    type: AUTO_DATA_SUCCESS,
+    response
+});
+
+export const getAutoDataFailure = (err) => ({
+    type: AUTO_DATA_FAILURE,
+    err
+});
+/**End of Auto data */

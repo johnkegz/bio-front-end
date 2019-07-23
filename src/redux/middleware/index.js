@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import { watchFetchBio, watchFetchOnePersonBio, watchhandlesubmit } from './bioSaga';
+import { watchFetchBio, watchFetchOnePersonBio, watchhandlesubmit, watchAutoData } from './bioSaga';
 import { watchLogin, watchLoginOut } from './loginSaga';
 
 export default function* rootSagas() {
@@ -8,6 +8,7 @@ export default function* rootSagas() {
         watchFetchOnePersonBio(),
         watchhandlesubmit(),
         watchLogin(),
-        watchLoginOut()
+        watchLoginOut(),
+        watchAutoData()
     ]);
 }

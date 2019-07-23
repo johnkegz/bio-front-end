@@ -7,7 +7,7 @@ class BioApi {
     }
 
     static async getOnePerson(id) {
-        return axios.get(`${url}/login`);
+        return axios.get(`${url}person/${id}`);
     }
 
     static async handleSubmit(data) {
@@ -16,6 +16,10 @@ class BioApi {
 
     static async login(data) {
         return axios.post('http://localhost:8000/user/login', data);
+    }
+    //get auto data
+    static async getAutoData() {
+        return axios.get('http://localhost:8000/people/auto');
     }
 }
 

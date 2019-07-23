@@ -24,3 +24,10 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 /**Loug out user */
 export const LOG_OUT = 'LOG_OUT'
 /**Loug out user */
+
+/**Auto data */
+export const AUTO_DATA = 'AUTO_DATA';
+export const AUTO_DATA_SUCCESS = 'AUTO_DATA_SUCCESS';
+export const AUTO_DATA_FAILURE = 'AUTO_DATA_FAILURE';
+
+/**End of Auto data */
