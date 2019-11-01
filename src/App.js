@@ -14,6 +14,7 @@ import Board from './components/Board';
 import Content from './components/Content/Content';
 import Forms from './components/Forms/Forms';
 import Login from './components/Login';
+import Feeds from './components/Forms/Feeds';
 
 const localStorageData = localStorage.jwtToken
 
@@ -44,6 +45,7 @@ if(localStorageData) {
           <Route exact path='/content/:id' component={Content}/>
           <Route exact path='/forms' component={Forms}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/feed' component={Feeds}/>
           {/* <Route componet={NotFound} /> */}
         </Switch>
       </Router>

@@ -2,20 +2,28 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import CKEditor from 'ckeditor4-react';
 
-import  { handleSubmit, logOut } from '../../redux/actions/actions'
+import  { submitFeed, logOut } from '../../redux/actions/actions'
 import Header from '../Header/Header';
 import Footer from '../Footer';
-// import axios from 'axios';
+
+
+// Form validation
+const CkEditorValidation = (props) =>{
+    return(
+    <div style={{color:"red"}}>
+    {props.ckEditorStatus === false? "shouldnot be empty": "" }
+    </div>);
+}
+
 
 class Forms extends Component {
 
     initialState = {
-        name: '',
-        institution: '',
-        knownfor: '',
-        subject: '',
-        bio: '',
-        imageUrl: ''
+        title: '',
+        feed: '',
+        picUrl: '',
+        disabled: false,
+        ckEditorStatus: true,
     }
     state = this.initialState;
     componentWillMount(){
@@ -36,15 +44,23 @@ class Forms extends Component {
             [name]: value
         });
     }
-    submitForm = () => {
-        this.props.handleSubmit(this.state)
-        this.setState(this.initialState)
+    submitForm = (e) => {
+        if(this.state.feed === ''){
+            e.preventDefault();
+            this.setState({ckEditorStatus: false})
+        }else{
+            // e.preventDefault();
+            this.props.submitFeed(this.state)
+            this.setState(this.initialState)
+        }
+        alert("Story created");
     }
 
     onEditorChange = ( evt ) => {
         // evt.preventDefault()
         this.setState({
-            bio: evt.editor.getData()
+            feed: evt.editor.getData(),
+            ckEditorStatus: true
         });
     }
 
@@ -53,19 +69,20 @@ class Forms extends Component {
         this.props.logOut()
     }
 
-    renderEditor = (bio)=> {
-        return this.props.loginData.isAuthenticated? <CKEditor
-        data={bio}
+    renderEditor = (feed)=> {
+        return this.props.loginData.isAuthenticated? <div style={{width:"700px"}}><CKEditor
+        data={feed}
         onChange={this.onEditorChange}
-        /> : ''
+        /> </div>: ''
     }
 
     uploadImage = event => {
+        this.setState({
+            disabled: true
+        });
         const file = event.target.files[0];
         const formData = new FormData();
         formData.append("file", file);
-        console.log('file +++++++++++', file);
-        console.log('env +++++++++++', process.env.REACT_CLOUDINARY_UPLOAD_PRESET);
         formData.append("upload_preset", 'xhqd6sno');
         return fetch('https://api.cloudinary.com/v1_1/dar5ymd2m/upload', {
             method: "POST",
@@ -73,34 +90,37 @@ class Forms extends Component {
           })
             .then(res => res.json())
             .then(response => {
-                console.log('secure', response.secure_url);
-                this.setState({imageUrl:response.secure_url});
+                this.setState({
+                    picUrl:response.secure_url,
+                    disabled: false
                 });
-        // console.log('cloudinary +++++++++++', axios.post({'https://api.cloudinary.com/v1_1/dar5ymd2m/image/upload'}, formData));
-      };
+            });
+        };
+    
     renderForm = () => {
-        const { name, institution, knownfor, subject, bio } = this.state;
+        const { title, feed, disabled, ckEditorStatus, picUrl } = this.state;
+        console.log("picUrl:", picUrl);
         return (
             <>
             <button onClick = {this.handleLogOut}>logout</button>
-            <form>
-                <input type='text' name='name' placeholder='name' value={name} onChange={this.handleChange}/>
-                <input type='text' name='institution' placeholder='institution' value={institution} onChange={this.handleChange}/>
-                <input type='text' name='knownfor' placeholder='Known for' value={knownfor} onChange={this.handleChange}/>
-                <input type='text' name='subject' placeholder='subject' value={subject} onChange={this.handleChange}/>
-                <input
-                type="button" 
-                value="Submit" 
-                onClick={this.submitForm} 
-                />
+            <form onSubmit={this.submitForm}>
+                <input type='text' name='title' placeholder='title' value={title} onChange={this.handleChange} required/>
                 <input
                     name="file-upload"
                     id="file-upload"
                     type="file"
+                    // value="picUrl"
                     onChange={this.uploadImage}
                     className="image-input"
+                    required
                 />
-                {this.renderEditor(bio)}
+                 <CkEditorValidation ckEditorStatus={ckEditorStatus} />
+                {this.renderEditor(feed)}
+                <input
+                type="submit" 
+                value="Submit" 
+                disabled = {(disabled)? "disabled": ""}
+                />
             </form>
             </>
         );
@@ -116,12 +136,12 @@ class Forms extends Component {
 }
 
 const mapStateToProps = state => ({
-    bio: state.bioReducer,
+    feed: state.feedReducer,
     singlePerson: state.singlePersonreducer,
     loginData: state.loginReducer
   });
   const mapDispatchToProps = {
-    handleSubmit,
+    submitFeed,
     logOut
   };
   

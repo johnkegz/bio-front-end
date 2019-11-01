@@ -31,3 +31,9 @@ export const AUTO_DATA_SUCCESS = 'AUTO_DATA_SUCCESS';
 export const AUTO_DATA_FAILURE = 'AUTO_DATA_FAILURE';
 
 /**End of Auto data */
+
+/**feed**/
+export const SUBMIT_FEED = 'SUBMIT_FEED';
+export const SUBMIT_FEED_SUCCESS = 'SUBMIT_FEED_SUCCESS';
+export const SUBMIT_FEED_FAILURE = 'SUBMIT_FEED_FAILURE';
+/**End of feed**/

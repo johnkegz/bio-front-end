@@ -14,7 +14,10 @@ import {
     LOG_OUT,
     AUTO_DATA,
     AUTO_DATA_SUCCESS,
-    AUTO_DATA_FAILURE
+    AUTO_DATA_FAILURE,
+    SUBMIT_FEED,
+    SUBMIT_FEED_SUCCESS,
+    SUBMIT_FEED_FAILURE,
 
 } from './actionTypes';
 /**fetch all */
@@ -105,3 +108,20 @@ export const getAutoDataFailure = (err) => ({
     err
 });
 /**End of Auto data */
+
+/**handle submit */
+export const submitFeed = (data) => ({
+    type: SUBMIT_FEED,
+    data
+});
+
+export const submitFeedSuccess = (response) => ({
+    type: SUBMIT_FEED_SUCCESS,
+    response
+});
+
+export const submitFeedFailure = (error) => ({
+    type: SUBMIT_FEED_FAILURE,
+    error
+});
+/**end of handle submit */

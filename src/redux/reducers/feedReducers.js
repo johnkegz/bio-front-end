@@ -1,7 +1,7 @@
 import { 
-    FETCH_ONE_PERSON,
-    FETCH_ONE_PERSON_SUCCESS, 
-    FETCH_ONE_PERSON_FAILURE 
+    SUBMIT_FEED,
+    SUBMIT_FEED_SUCCESS, 
+    SUBMIT_FEED_FAILURE 
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -12,23 +12,20 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type){
-        case FETCH_ONE_PERSON:
-            console.log('action +++', action);
+        case SUBMIT_FEED:
             return {
                 ...state,
                 isLoading: true
             };
 
-        case FETCH_ONE_PERSON_SUCCESS:
-            console.log('action +++', action);
+        case SUBMIT_FEED_SUCCESS:
             return {
                 ...state,
                 isLoading:false,
                 data: action.bio
             };
 
-        case FETCH_ONE_PERSON_FAILURE:
-            console.log('action +++', action);
+        case SUBMIT_FEED_FAILURE:
             return {
                 ...state,
                 isLoading:false,

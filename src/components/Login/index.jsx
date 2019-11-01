@@ -11,7 +11,7 @@ class Login extends Component {
 
     componentWillReceiveProps(nextProps){
         if(nextProps.loginData.isAuthenticated){
-            this.props.history.push('/forms')
+            this.props.history.push('/feed')
         }
     }
     handleChange = event =>  {
