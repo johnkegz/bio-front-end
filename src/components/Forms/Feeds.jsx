@@ -81,6 +81,13 @@ class Forms extends Component {
             disabled: true
         });
         const file = event.target.files[0];
+        if (file.size > 3000000){
+            console.log("Size big+++++++++++++++++", file.size)
+            file.value = '';
+            return alert("image should be less that 3 mbs. please select another image");
+        }
+        else{
+            console.log("Size +++++++++++++++++", file.size)
         const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", 'xhqd6sno');
@@ -95,6 +102,8 @@ class Forms extends Component {
                     disabled: false
                 });
             });
+        }
+        
         };
     
     renderForm = () => {
@@ -104,7 +113,7 @@ class Forms extends Component {
             <>
             <button onClick = {this.handleLogOut}>logout</button>
             <form onSubmit={this.submitForm}>
-                <input type='text' name='title' placeholder='title' value={title} onChange={this.handleChange} required/>
+                <textarea rows="4" cols="50" maxLength='135' placeholder="title" value={title} name='title'onChange={this.handleChange} required/>
                 <input
                     name="file-upload"
                     id="file-upload"

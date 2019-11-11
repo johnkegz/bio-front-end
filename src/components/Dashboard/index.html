@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <Link rel="stylesheet" href="./dashboard.css" />
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+        displayList = () => {
+            return(
+                <ul className="leftPane">
+                    <li>one</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                    <li>five</li>
+                </ul>
+                );
+        }
+        displayLeftPane = () => {
+            return (<div className="leftPane">{this.displayList()}</div>);
+        }
+        displayRightPane = () => {
+            return (<div className="rightPane">right menu</div>);
+        }
+          render() {
+            return (<div className="container">
+                {this.displayLeftPane()}
+                {this.displayRightPane()}
+                </div>)
+          }
+        }
+  
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
