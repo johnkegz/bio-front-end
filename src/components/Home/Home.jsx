@@ -5,8 +5,8 @@ import ReactHtmlParser from 'react-html-parser';
 
 import { Link } from "react-router-dom";
 import { fetchBio, getAutoData } from "../../redux/actions/actions";
-import Header from "../Header/Header";
-import Footer from "../Footer";
+// import Header from "../Header/Header";
+// import Footer from "../Footer";
 import logo from "./like.jpeg";
 import "./Home.scss";
 
@@ -105,10 +105,11 @@ class Home extends Component {
 	console.log('this.props ++', this.props);
     return (
       <div>
-        <Header />
+      <Link to={`/feed`} activeClassName="active">click here to create feed</Link>
+        {/* <Header />
         {images ? this.renderSlider(images): ''}
         {this.renderMainBody()}
-        <Footer />
+        <Footer /> */}
       </div>
     )
   }

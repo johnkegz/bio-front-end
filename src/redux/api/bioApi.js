@@ -2,9 +2,6 @@ import axios from 'axios';
 
 const url = 'http://localhost:8000/people/';
 class BioApi {
-    // const params = {
-    //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    // }
     static async fetchBio() {
         return axios.get(url);
     }
@@ -19,7 +16,7 @@ class BioApi {
     }
 
     static async login(data) {
-        return axios.post('http://localhost:8000/user/login', data);
+        return axios.post('https://bio-back.herokuapp.com/user/login', data);
     }
     //get auto data
     static async getAutoData() {
@@ -28,8 +25,7 @@ class BioApi {
 
     //Submit feeds
     static async submitFeed(data){
-        console.log("API  ++++++++++++++++", data)
-        return axios.post('http://localhost:8000/feed', data);
+        return axios.post('https://bio-back.herokuapp.com/feed', data);
     }
 }
 

@@ -6,13 +6,13 @@ import setAuthToken from './utils/setAuthToken'
 import { loginSuccess }from './redux/actions/actions'
 import './App.css';
 import Home from './components/Home/Home';
-import Activities from './components/Activities';
-import Objectives from './components/Objectives';
-import Obituaries from './components/Obituaries';
-import Gallery from './components/Gallery';
-import Board from './components/Board';
-import Content from './components/Content/Content';
-import Forms from './components/Forms/Forms';
+// import Activities from './components/Activities';
+// import Objectives from './components/Objectives';
+// import Obituaries from './components/Obituaries';
+// import Gallery from './components/Gallery';
+// import Board from './components/Board';
+// import Content from './components/Content/Content';
+// import Forms from './components/Forms/Forms';
 import Login from './components/Login';
 import Feeds from './components/Forms/Feeds';
 
@@ -37,13 +37,13 @@ if(localStorageData) {
       <Router>
         <Switch>
           <Route exact path='/' component = {Home} />
-          <Route exact path='/activities' component={Activities}/>
+          {/* <Route exact path='/activities' component={Activities}/>
           <Route exact path='/objectives' component={Objectives}/>
           <Route exact path='/obituaries' component={Obituaries}/>
           <Route exact path='/gallery' component={Gallery}/>
           <Route exact path='/board' component={Board}/>
           <Route exact path='/content/:id' component={Content}/>
-          <Route exact path='/forms' component={Forms}/>
+          <Route exact path='/forms' component={Forms}/> */}
           <Route exact path='/login' component={Login}/>
           <Route exact path='/feed' component={Feeds}/>
           {/* <Route componet={NotFound} /> */}

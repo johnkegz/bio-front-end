@@ -13,16 +13,18 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type){
         case SUBMIT_FEED:
+                console.log("action.bio ++++++++++++++++");
             return {
                 ...state,
                 isLoading: true
             };
 
         case SUBMIT_FEED_SUCCESS:
+            console.log("action.bio reducer++++++++++++++++", action.response.data.message);
             return {
                 ...state,
                 isLoading:false,
-                data: action.bio
+                data: action.response.data.message
             };
 
         case SUBMIT_FEED_FAILURE:
