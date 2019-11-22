@@ -64,8 +64,6 @@ class Forms extends Component {
         const file = event.target.files[0];
         const formData = new FormData();
         formData.append("file", file);
-        console.log('file +++++++++++', file);
-        console.log('env +++++++++++', process.env.REACT_CLOUDINARY_UPLOAD_PRESET);
         formData.append("upload_preset", 'xhqd6sno');
         return fetch('https://api.cloudinary.com/v1_1/dar5ymd2m/upload', {
             method: "POST",
@@ -73,10 +71,8 @@ class Forms extends Component {
           })
             .then(res => res.json())
             .then(response => {
-                console.log('secure', response.secure_url);
                 this.setState({imageUrl:response.secure_url});
                 });
-        // console.log('cloudinary +++++++++++', axios.post({'https://api.cloudinary.com/v1_1/dar5ymd2m/image/upload'}, formData));
       };
     renderForm = () => {
         const { name, institution, knownfor, subject, bio } = this.state;

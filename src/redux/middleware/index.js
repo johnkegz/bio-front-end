@@ -5,7 +5,7 @@ import {
     watchhandlesubmit, 
     watchAutoData,
 } from './bioSaga';
-import { watchLogin, watchLoginOut } from './loginSaga';
+import { watchLogin, watchLoginOut, watchRegister } from './loginSaga';
 import { watchHandleFeed, watchHandleGetFeed, watchHandleApprove } from './feedSaga';
 
 export default function* rootSagas() {
@@ -13,6 +13,7 @@ export default function* rootSagas() {
         watchFetchBio(),
         watchFetchOnePersonBio(),
         watchhandlesubmit(),
+        watchRegister(),
         watchLogin(),
         watchLoginOut(),
         watchAutoData(),

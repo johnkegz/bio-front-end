@@ -1,0 +1,41 @@
+.registerFormContainer{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// .col-2{
+//     width: 50%;
+//     background-color: red;
+// }
+.formText{
+    font-family: Jazz LET, fantasy;
+    background-blend-mode: color-burn;
+    text-align: center;
+    font-weight: 900px;
+    font-size: 30px;
+}
+
+.registerForm{
+    width: 30%;
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+}
+
+.registerForm input{
+   margin-top: 40px;
+   margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+    .registerForm{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .registerForm{
+        width: 90%;
+    }
+}

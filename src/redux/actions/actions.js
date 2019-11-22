@@ -8,6 +8,9 @@ import {
     HANDLE_SUBMIT,
     HANDLE_SUBMIT_SUCCESS,
     HANDLE_SUBMIT_FAILURE,
+    REGISTER,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
     LOGIN,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
@@ -75,6 +78,25 @@ export const handleSubmitFailure = (error) => ({
     error
 });
 /**end of handle submit */
+
+/**register */
+export const register = (data) => ({
+    type: REGISTER,
+    data
+});
+
+export const registerSuccess = (response) => ({
+    type: REGISTER_SUCCESS,
+    response
+});
+
+export const registerFailure = (err) => ({
+    type: REGISTER_FAILURE,
+    err
+});
+/** end of register */
+
+
 
 /**Login */
 export const login = (data) => ({

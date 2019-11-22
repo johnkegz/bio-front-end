@@ -3,12 +3,30 @@ import jwt_decode from 'jwt-decode';
 import BioApi from '../api/bioApi';
 import {
     loginSuccess,
-    loginFailure
+    loginFailure,
+    registerSuccess,
+    registerFailure
 } from '../actions/actions';
 import { 
-    LOGIN, LOG_OUT 
+    LOGIN, LOG_OUT, REGISTER
 } from '../actions/actionTypes';
 import setAuthToken from '../../utils/setAuthToken';
+
+/**Register*/
+export function* handleRegister(action) {
+    try{
+        const response = yield call(BioApi.register, action.data);
+        yield put(registerSuccess(response));
+    }
+    catch(error){
+        yield put(registerFailure(error));
+    }
+}
+
+export function* watchRegister() {
+    yield takeEvery(REGISTER, handleRegister);
+}
+/** end of Register */
 
 /**Login */
 export function* login(action) {

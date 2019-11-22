@@ -57,7 +57,6 @@ export function* handleApprove(action) {
         yield put(approveSuccess(response));
     }
     catch(error){
-        console.log("approve log error ++++", error);
         yield put(approveFailure(error));
     }
 }

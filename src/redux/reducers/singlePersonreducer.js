@@ -13,14 +13,12 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type){
         case FETCH_ONE_PERSON:
-            console.log('action +++', action);
             return {
                 ...state,
                 isLoading: true
             };
 
         case FETCH_ONE_PERSON_SUCCESS:
-            console.log('action +++', action);
             return {
                 ...state,
                 isLoading:false,
@@ -28,7 +26,6 @@ export default (state = initialState, action) => {
             };
 
         case FETCH_ONE_PERSON_FAILURE:
-            console.log('action +++', action);
             return {
                 ...state,
                 isLoading:false,

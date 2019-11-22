@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const url = 'http://localhost:8000/people/';
+const url2 = 'http://localhost:8000/people/';
 class BioApi {
     static async fetchBio() {
         return axios.get(url);
     }
 
     static async getOnePerson(id) {
-        console.log("getOnePerson here +++", axios.get(`${url}people/${id}`));
         return axios.get(`${url}person/${id}`);
     }
 
@@ -17,6 +17,11 @@ class BioApi {
 
     static async login(data) {
         return axios.post('https://bio-back.herokuapp.com/user/login', data);
+    }
+
+    //REGISTER
+    static async register(data){
+        return axios.post('http://localhost:8000/user/register', data);
     }
     //get auto data
     static async getAutoData() {

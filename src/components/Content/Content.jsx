@@ -53,7 +53,6 @@ class Content extends Component {
         );
     }
   render() {
-    console.log("props +++", this.props);
     const { singlePerson: { data } } = this.props;
     return (
       <div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/actions';
+import '../Regisiter/register.scss';
 
 class Login extends Component {
     initialState = {
@@ -26,15 +27,30 @@ class Login extends Component {
         this.setState(this.initialState)
     }
 
+    displayForm(email, password){
+        return(
+            <div className="registerFormContainer">
+            <div className="registerForm">
+            <div className="formText">Login</div>
+            <form>
+                <input type="email" name="email" placeholder="email" value={email} onChange={this.handleChange} className="form-control" />
+                <input type="password" name="password" placeholder="password" value={password} onChange={this.handleChange} className="form-control" />
+                <input type="submit" name="submit" value="submit" className="btn btn-primary form-control" onClick={this.handleSubmit}/>
+            </form>
+            </div>
+            </div>
+        )
+    }
   render() {
       const {email, password} = this.state;
     return (
     <div>
-        <form>
+    {this.displayForm(email, password)}
+        {/* <form>
             <input type='text' name='email' value={email} onChange={this.handleChange}/>
             <input type='password' name='password' value={password} onChange={this.handleChange}/>
             <input type='submit' value='submit' onClick={this.handleSubmit} />
-        </form>
+        </form> */}
     </div>);
   }
 }
