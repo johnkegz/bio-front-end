@@ -102,7 +102,6 @@ class Home extends Component {
       bio: { data }
     } = this.props;
 	const images = data;
-	console.log('this.props ++', this.props);
     return (
       <div>
       <Link to={`/feed`} activeClassName="active">click here to create feed</Link>

@@ -10,7 +10,6 @@ class Analytics extends Component {
     }
 
     handleApprove(id){
-        console.log("props", this.props)
        return this.props.approve(id);
     }
     displayStory(feedData){
@@ -37,7 +36,6 @@ class Analytics extends Component {
     }
 
   render() {
-    console.log("state  +++++", this.state);
     return (
       <div>
         <LayOut>

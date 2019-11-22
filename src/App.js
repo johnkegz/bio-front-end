@@ -18,6 +18,7 @@ import Login from './components/Login';
 import Feeds from './components/Forms/Feeds';
 import Management from './components/Dashboard/Management';
 import Analytics from './components/Dashboard/Analytics';
+import Register from './components/Regisiter';
 
 const localStorageData = localStorage.jwtToken
 
@@ -51,6 +52,7 @@ if(localStorageData) {
           <Route exact path='/dashboard' component={DashBoard}/>
           <Route exact path='/management' component={Management}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/register' component={Register}/>
           <Route exact path='/feed' component={Feeds}/>
           {/* <Route componet={NotFound} /> */}
         </Switch>
