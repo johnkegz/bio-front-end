@@ -18,6 +18,12 @@ import {
     SUBMIT_FEED,
     SUBMIT_FEED_SUCCESS,
     SUBMIT_FEED_FAILURE,
+    GET_FEED,
+    GET_FEED_SUCCESS,
+    GET_FEED_FAILURE,
+    APPROVE,
+    APPROVE_SUCCESS,
+    APPROVE_FAILURE,
 
 } from './actionTypes';
 /**fetch all */
@@ -125,3 +131,38 @@ export const submitFeedFailure = (error) => ({
     error
 });
 /**end of handle submit */
+
+/**get feed */
+export const getFeed = () => ({
+    type: GET_FEED,
+});
+
+export const getFeedSuccess = (response) => ({
+    type: GET_FEED_SUCCESS,
+    response
+});
+
+export const getFeedFailure = (error) => ({
+    type: GET_FEED_FAILURE,
+    error
+});
+/**end of get feed*/
+
+/** APPROVE */
+export const approve = (id) => (
+    console.log("action log +++++++ ++++")
+    ,{
+    type: APPROVE,
+    id
+});
+
+export const approveSuccess = (response) => ({
+    type: APPROVE_SUCCESS,
+    response
+});
+
+export const approveFailure = (error) => ({
+    type: APPROVE_FAILURE,
+    error
+});
+/**end of approve*/

@@ -6,7 +6,7 @@ import {
     watchAutoData,
 } from './bioSaga';
 import { watchLogin, watchLoginOut } from './loginSaga';
-import { watchHandleFeed } from './feedSaga';
+import { watchHandleFeed, watchHandleGetFeed, watchHandleApprove } from './feedSaga';
 
 export default function* rootSagas() {
     yield all([
@@ -16,6 +16,8 @@ export default function* rootSagas() {
         watchLogin(),
         watchLoginOut(),
         watchAutoData(),
-        watchHandleFeed()
+        watchHandleFeed(),
+        watchHandleGetFeed(),
+        watchHandleApprove(),
     ]);
 }

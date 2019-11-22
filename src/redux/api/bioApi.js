@@ -27,6 +27,16 @@ class BioApi {
     static async submitFeed(data){
         return axios.post('https://bio-back.herokuapp.com/feed', data);
     }
+
+    //Get feeds
+    static async getFeed(){
+        return axios.get('http://localhost:8000/feed');
+    }
+
+    //Approve
+    static async approve(id){
+        return axios.put(`http://localhost:8000/feed/${id}`);
+    }
 }
 
 export default BioApi;

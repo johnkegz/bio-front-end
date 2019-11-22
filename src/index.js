@@ -8,6 +8,7 @@ import store from './redux/store';
 import 'bootstrap/dist/css/bootstrap.css';
 // import './lib/owlcarousel/owl.carousel.min.css';
 import './lib/owlcarousel/owl.carousel.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
     <Provider store = {store} >

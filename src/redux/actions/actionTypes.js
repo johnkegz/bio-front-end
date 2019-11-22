@@ -37,3 +37,16 @@ export const SUBMIT_FEED = 'SUBMIT_FEED';
 export const SUBMIT_FEED_SUCCESS = 'SUBMIT_FEED_SUCCESS';
 export const SUBMIT_FEED_FAILURE = 'SUBMIT_FEED_FAILURE';
 /**End of feed**/
+
+
+/** GET feed**/
+export const GET_FEED = 'GET_FEED';
+export const GET_FEED_SUCCESS = 'GET_FEED_SUCCESS';
+export const GET_FEED_FAILURE = 'GET_FEED_FAILURE';
+/**End of  GET feed**/
+
+/** approve**/
+export const APPROVE = 'APPROVE';
+export const APPROVE_SUCCESS = 'APPROVE_SUCCESS';
+export const APPROVE_FAILURE = 'APPROVE_FAILURE';
+/**End of  approve**/

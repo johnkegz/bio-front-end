@@ -1,16 +1,128 @@
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.stories{
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+}
+.layout{
+    display: flex;
+}
 .container{
     display:flex;
     flex-wrap: nowrap;
     width: 100%;
 }
 .leftPane{
-    width: 30%;
-    background-color: green;
+    width: 24%;
+    padding: 40px;
+    
 }
-.rightPane{
-    width: 70%;
-    /* background-color: red; */
+
+.sidebar-wrapper{
+    /* margin: 0 auto; */
+    border: 1px solid black;
+    border-radius: 10px
 }
-.leftPane{
+
+.sidebar-header{
+    /* margin: 0 auto; */
+}
+
+.innerSideBar{
+    padding: 2px 1.5rem calc((1.5rem) + 70px);
+}
+
+.verticalNavMenu{
+    margin: 0;
+    padding: 0;
+    position: relative;
     list-style: none;
 }
+
+.verticalNavMenu li a {
+    display: block;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    padding: 0 1.5rem 0 1.95rem;
+    position: relative;
+    border-radius: .35rem;
+    color: #6c757d;
+    white-space: nowrap;
+    transition: all .2s;
+    margin: .1rem 0;
+}
+.verticalNavMenu ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    list-style: none;
+}
+
+.verticalNavMenu ul>li> a:active {
+    color: #da624a;
+    background: red;
+}
+
+.appSiderHeading{
+    text-transform: uppercase;
+    font-size: .7438rem;
+    margin: 1rem 0;
+    color: #da624a;
+    opacity: .6;
+    white-space: nowrap;
+    position: relative;
+}
+
+.rockect::before{
+    box-sizing: border-box;
+}
+
+.rightPane{
+    width: 100%;
+    background-color: red;
+}
+
+/***management*/
+.management{
+    width: 100%;
+    /* background-color: pink; */
+}
+
+
+
+.navigation a {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navigation a:hover,
+  .navigation a.active {
+    background: orange;
+    /* color: white; */
+  }
+
+  @media only screen and (max-width: 900px) {
+    .leftPane{
+        /* display: none; */
+        padding: 10px;
+    }
+
+    .sidebar-wrapper{
+        width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .innerCardOne{
+        display: block;
+    }
+    .leftPane{
+        display: none;
+    }
+  }
