@@ -186,3 +186,19 @@ export const approveFailure = (error) => ({
     error
 });
 /**end of approve*/
+
+/** getDashboardFeed */
+export const getDashboardFeed = () => ({
+    type: 'GET_DASHBOARD_FEED',
+});
+
+export const getDashboardFeedSuccess = (response) => ({
+    type: 'GET_DASHBOARD_FEED_SUCCESS',
+    response
+});
+
+export const getDashboardFeedFailure = (error) => ({
+    type: 'GET_DASHBOARD_FEED_FAILURE',
+    error
+});
+/**end of getDashboardFeed*/

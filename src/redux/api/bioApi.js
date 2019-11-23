@@ -16,7 +16,7 @@ class BioApi {
     }
 
     static async login(data) {
-        return axios.post('https://bio-back.herokuapp.com/user/login', data);
+        return axios.post('http://localhost:8000/user/login', data);
     }
 
     //REGISTER
@@ -30,7 +30,7 @@ class BioApi {
 
     //Submit feeds
     static async submitFeed(data){
-        return axios.post('https://bio-back.herokuapp.com/feed', data);
+        return axios.post('http://localhost:8000/feed', data);
     }
 
     //Get feeds
@@ -41,6 +41,11 @@ class BioApi {
     //Approve
     static async approve(id){
         return axios.put(`http://localhost:8000/feed/${id}`);
+    }
+
+    //getDashboardFeed
+    static async getDashboardFeed(){
+        return axios.get('http://localhost:8000/dashboard/feed');
     }
 }
 
