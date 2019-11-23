@@ -2,10 +2,40 @@
 .outerRoute{
     width: 100%;
 }
+
+.editor{
+    margin-top: 10px;
+}
+
 .formContainer{
     margin-left: 20%;
     margin-right: 20%;
+    margin-top: 10px;
 }
 .textAreaField{
    width: 100%; 
+   margin-top: 10px;
+}
+
+.image-input{
+    margin-top: 10px;
+    width: 50%;
+}
+
+.submit{
+    width: 50%;
+    margin-top: 10px;
+}
+@media only screen and (max-width: 800px){
+    .formContainer{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .submit{
+        width: 100%;
+        
+    }
+    .image-input{
+        width: 100%;
+    }
 }

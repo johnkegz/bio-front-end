@@ -17,6 +17,7 @@ class Register extends Component {
         if(props.registerResponse.registerResponse.data === 'Registration successful'){
             return props.history.push('/login')
         }
+        return state
     }
 
     handleOnchange = e => {
@@ -35,7 +36,6 @@ class Register extends Component {
         return(
             <div className="registerFormContainer">
             <div className="registerForm">
-            <div className="formText">register to become a member</div>
             <div className="formText">register to post stories</div>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" name="firstName" value={firstName} placeholder="First name" onChange={this.handleOnchange} className="form-control" required/>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/actions';
+import { NavLink } from "react-router-dom";
 import '../Regisiter/register.scss';
 
 class Login extends Component {
@@ -32,10 +33,13 @@ class Login extends Component {
             <div className="registerFormContainer">
             <div className="registerForm">
             <div className="formText">Login</div>
-            <form>
-                <input type="email" name="email" placeholder="email" value={email} onChange={this.handleChange} className="form-control" />
-                <input type="password" name="password" placeholder="password" value={password} onChange={this.handleChange} className="form-control" />
-                <input type="submit" name="submit" value="submit" className="btn btn-primary form-control" onClick={this.handleSubmit}/>
+            <form onSubmit={this.handleSubmit}>
+                <input type="email" name="email" placeholder="email" value={email} onChange={this.handleChange} className="form-control" required/>
+                <input type="password" name="password" placeholder="password" value={password} onChange={this.handleChange} className="form-control" required/>
+                <input type="submit" name="submit" value="submit" className="btn btn-primary form-control" />
+                <NavLink exact to='/register'>
+                 Register
+                </NavLink>
             </form>
             </div>
             </div>

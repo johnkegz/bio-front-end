@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import LayOut from "./layOut";
 import "./stories.scss";
 import { connect } from "react-redux";
-import { getFeed, approve } from '../../redux/actions/actions';
+import { getDashboardFeed, approve } from '../../redux/actions/actions';
 
 class Analytics extends Component {
     componentDidMount(){
-        this.props.getFeed();
+        this.props.getDashboardFeed();
     }
 
     handleApprove(id){
@@ -62,10 +62,10 @@ class Analytics extends Component {
 }
 
 const mapStateToProps = state => ({
-    feedData: state.feedReducer.feedData
+    feedData: state.getDashBoardFeedReducer.data
   });
   const mapDispatchToProps = ({
-    getFeed,
+    getDashboardFeed,
     approve
   });
 

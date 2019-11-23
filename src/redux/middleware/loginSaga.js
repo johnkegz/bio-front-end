@@ -19,6 +19,7 @@ export function* handleRegister(action) {
         yield put(registerSuccess(response));
     }
     catch(error){
+       
         yield put(registerFailure(error));
     }
 }
@@ -32,12 +33,21 @@ export function* watchRegister() {
 export function* login(action) {
     try{
         const response = yield call(BioApi.login, action.data);
-        localStorage.setItem('jwtToken', response.data.token)
-        setAuthToken(response.data.token);
-        const decoded = jwt_decode(response.data.token)
-        yield put(loginSuccess(decoded));
+        if(response.data.token === undefined){
+            console.log("response ::::::: if", response.data.token);
+            return false
+        }
+        else{
+            console.log("response ::::::: else", response.data.token);
+            localStorage.setItem('jwtToken', response.data.token)
+            setAuthToken(response.data.token);
+            const decoded = jwt_decode(response.data.token)
+            yield put(loginSuccess(decoded));
+        }
+        
     }
     catch(error){
+        console.log("register error", error);
         yield put(loginFailure(error));
     }
 }

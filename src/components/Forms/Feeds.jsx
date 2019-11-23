@@ -21,6 +21,7 @@ class Forms extends Component {
     title: "",
     feed: "",
     picUrl: "",
+    UserId: "",
     disabled: false,
     ckEditorStatus: true
   };
@@ -29,6 +30,9 @@ class Forms extends Component {
     if (!this.props.loginData.isAuthenticated) {
       this.props.history.push("/login");
     }
+    this.setState({
+      UserId: this.props.loginData.user !== undefined ? this.props.loginData.user.id : ""
+    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,7 +53,7 @@ class Forms extends Component {
       return this.setState({ ckEditorStatus: false });
     } else {
       e.preventDefault();
-      this.props.submitFeed(this.state);
+      // this.props.submitFeed(this.state);
       document.getElementById("file-upload").value = "";
       return this.setState(this.initialState);
     }
@@ -115,12 +119,12 @@ class Forms extends Component {
     return (
       <div className='outerRoute'>
         <div className='formContainer'>
-          <button onClick={this.handleLogOut}>logout</button>
-          <form onSubmit={this.submitForm}>
+          <button onClick={this.handleLogOut} className="btn btn-info">logout</button>
+          <form onSubmit={()=>this.submitForm()}>
             <textarea
               rows='4'
               maxLength='135'
-              className='textAreaField'
+              className='textAreaField form-control'
               placeholder='title'
               value={title}
               name='title'
@@ -135,10 +139,11 @@ class Forms extends Component {
               id='file-upload'
               type='file'
               onChange={this.uploadImage}
-              className='image-input'
+              className='image-input btn btn-dark'
               required
             />
             <input
+              className="btn btn-primary submit"
               type='submit'
               value='Submit'
               disabled={disabled ? "disabled" : ""}
