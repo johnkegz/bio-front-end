@@ -49,11 +49,11 @@ class Forms extends Component {
   };
   submitForm = e => {
     if (this.state.feed === "") {
-      // e.preventDefault();
+      e.preventDefault();
       return this.setState({ ckEditorStatus: false });
     } else {
       e.preventDefault();
-      // this.props.submitFeed(this.state);
+      this.props.submitFeed(this.state);
       document.getElementById("file-upload").value = "";
       return this.setState(this.initialState);
     }
@@ -120,7 +120,7 @@ class Forms extends Component {
       <div className='outerRoute'>
         <div className='formContainer'>
           <button onClick={this.handleLogOut} className="btn btn-info">logout</button>
-          <form onSubmit={()=>this.submitForm()}>
+          <form onSubmit={this.submitForm}>
             <textarea
               rows='4'
               maxLength='135'
