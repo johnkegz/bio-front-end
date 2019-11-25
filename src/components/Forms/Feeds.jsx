@@ -21,7 +21,7 @@ class Forms extends Component {
     title: "",
     feed: "",
     picUrl: "",
-    UserId: "",
+    UserId: this.props.loginData.isAuthenticated ? this.props.loginData.user.id: "",
     disabled: false,
     ckEditorStatus: true
   };
@@ -30,9 +30,9 @@ class Forms extends Component {
     if (!this.props.loginData.isAuthenticated) {
       this.props.history.push("/login");
     }
-    this.setState({
-      UserId: this.props.loginData.user !== undefined ? this.props.loginData.user.id : ""
-    })
+    // this.setState({
+    //   UserId: this.props.loginData.user !== undefined ? this.props.loginData.user.id : ""
+    // })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,11 +49,11 @@ class Forms extends Component {
   };
   submitForm = e => {
     if (this.state.feed === "") {
-      // e.preventDefault();
+      e.preventDefault();
       return this.setState({ ckEditorStatus: false });
     } else {
       e.preventDefault();
-      // this.props.submitFeed(this.state);
+      this.props.submitFeed(this.state);
       document.getElementById("file-upload").value = "";
       return this.setState(this.initialState);
     }
@@ -71,7 +71,7 @@ class Forms extends Component {
   handleLogOut = e => {
     e.preventDefault();
     this.props.logOut();
-    window.location.href = "http://greateducatorsug.org/dashboard.html";
+    window.location.href = "https://bio-front.herokuapp.com/login";
     return null;
   };
 
@@ -120,7 +120,7 @@ class Forms extends Component {
       <div className='outerRoute'>
         <div className='formContainer'>
           <button onClick={this.handleLogOut} className="btn btn-info">logout</button>
-          <form onSubmit={()=>this.submitForm()}>
+          <form onSubmit={this.submitForm}>
             <textarea
               rows='4'
               maxLength='135'

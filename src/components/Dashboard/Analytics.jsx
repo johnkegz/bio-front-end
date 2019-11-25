@@ -3,6 +3,7 @@ import LayOut from "./layOut";
 import "./stories.scss";
 import { connect } from "react-redux";
 import { getDashboardFeed, approve } from '../../redux/actions/actions';
+import Nav, {SecondMenu} from './Nav';
 
 class Analytics extends Component {
     componentDidMount(){
@@ -37,10 +38,12 @@ class Analytics extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mainBody" style={{'background-color': '#f5f5f5ff'}}>
+        <Nav />
         <LayOut>
           <div className='container'>
             <div className='firstCards'>
+            <SecondMenu />
               <div className='innerCardOne'>
                 <div className='innerCardOneBrown'>
                   <div className='storyCard'>View member</div>

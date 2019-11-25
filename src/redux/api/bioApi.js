@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8000/people/';
-const url2 = 'http://localhost:8000/people/';
+const url = 'https://bio-back.herokuapp.com';
+const url2 = 'http://localhost:8000';
 class BioApi {
     static async fetchBio() {
         return axios.get(url);
@@ -12,16 +12,16 @@ class BioApi {
     }
 
     static async handleSubmit(data) {
-        return axios.post('https://bio-back.herokuapp.com/people/people', data);
+        return axios.post(`${url}/people/people`, data);
     }
 
     static async login(data) {
-        return axios.post('http://localhost:8000/user/login', data);
+        return axios.post(`${url}/user/login`, data);
     }
 
     //REGISTER
     static async register(data){
-        return axios.post('http://localhost:8000/user/register', data);
+        return axios.post(`${url}/user/register`, data);
     }
     //get auto data
     static async getAutoData() {
@@ -30,22 +30,22 @@ class BioApi {
 
     //Submit feeds
     static async submitFeed(data){
-        return axios.post('http://localhost:8000/feed', data);
+        return axios.post(`${url}/feed`, data);
     }
 
     //Get feeds
     static async getFeed(){
-        return axios.get('http://localhost:8000/feed');
+        return axios.get(`${url}/feed`);
     }
 
     //Approve
     static async approve(id){
-        return axios.put(`http://localhost:8000/feed/${id}`);
+        return axios.put(`${url}/feed/${id}`);
     }
 
     //getDashboardFeed
     static async getDashboardFeed(){
-        return axios.get('http://localhost:8000/dashboard/feed');
+        return axios.get(`${url}/dashboard/feed`);
     }
 }
 
