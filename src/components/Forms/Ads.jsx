@@ -1,29 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CKEditor from "ckeditor4-react";
-// import ReactDOM from "react-dom";
-import { submitFeed, logOut } from "../../redux/actions/actions";
-// import Header from '../Header/Header';
-// import Footer from '../Footer';
+import { postAd, logOut } from "../../redux/actions/actions";
 import "./feed.scss";
 
-// Form validation
-const CkEditorValidation = props => {
-  return (
-    <div style={{ color: "red" }}>
-      {props.ckEditorStatus === false ? "shouldnot be empty" : ""}
-    </div>
-  );
-};
-
-class Forms extends Component {
+class Ads extends Component {
   initialState = {
-    title: "",
-    feed: "",
+    name: "",
     picUrl: "",
-    UserId: this.props.loginData.isAuthenticated ? this.props.loginData.user.id: "",
     disabled: false,
-    ckEditorStatus: true
   };
   state = this.initialState;
   componentWillMount() {
@@ -53,7 +38,7 @@ class Forms extends Component {
       return this.setState({ ckEditorStatus: false });
     } else {
       e.preventDefault();
-      this.props.submitFeed(this.state);
+      this.props.postAd(this.state);
       document.getElementById("file-upload").value = "";
       return this.setState(this.initialState);
     }
@@ -73,16 +58,6 @@ class Forms extends Component {
     this.props.logOut();
     window.location.href = "https://bio-front.herokuapp.com/login";
     return null;
-  };
-
-  renderEditor = feed => {
-    return this.props.loginData.isAuthenticated ? (
-      <div className='editor'>
-        <CKEditor data={feed} onChange={this.onEditorChange} />{" "}
-      </div>
-    ) : (
-      ""
-    );
   };
 
   uploadImage = event => {
@@ -114,7 +89,7 @@ class Forms extends Component {
   };
 
   renderForm = () => {
-    const { title, feed, disabled, ckEditorStatus } = this.state;
+    const { name, disabled } = this.state;
 
     return (
       <div className='outerRoute'>
@@ -125,15 +100,12 @@ class Forms extends Component {
               rows='4'
               maxLength='135'
               className='textAreaField form-control'
-              placeholder='title'
-              value={title}
-              name='title'
+              placeholder='name'
+              value={name}
+              name='name'
               onChange={this.handleChange}
               required
             />
-
-            <CkEditorValidation ckEditorStatus={ckEditorStatus} />
-            {this.renderEditor(feed)}
             <input
               name='file-upload'
               id='file-upload'
@@ -165,16 +137,16 @@ class Forms extends Component {
 }
 
 const mapStateToProps = state => ({
-  feed: state.feedReducer,
+  ad: state.adReducer,
   singlePerson: state.singlePersonreducer,
   loginData: state.loginReducer
 });
 const mapDispatchToProps = {
-  submitFeed,
+  postAd,
   logOut
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Forms);
+)(Ads);

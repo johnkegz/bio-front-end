@@ -8,6 +8,9 @@ import {
     HANDLE_SUBMIT,
     HANDLE_SUBMIT_SUCCESS,
     HANDLE_SUBMIT_FAILURE,
+    REGISTER,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
     LOGIN,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
@@ -75,6 +78,25 @@ export const handleSubmitFailure = (error) => ({
     error
 });
 /**end of handle submit */
+
+/**register */
+export const register = (data) => ({
+    type: REGISTER,
+    data
+});
+
+export const registerSuccess = (response) => ({
+    type: REGISTER_SUCCESS,
+    response
+});
+
+export const registerFailure = (err) => ({
+    type: REGISTER_FAILURE,
+    err
+});
+/** end of register */
+
+
 
 /**Login */
 export const login = (data) => ({
@@ -164,3 +186,38 @@ export const approveFailure = (error) => ({
     error
 });
 /**end of approve*/
+
+/** getDashboardFeed */
+export const getDashboardFeed = () => ({
+    type: 'GET_DASHBOARD_FEED',
+});
+
+export const getDashboardFeedSuccess = (response) => ({
+    type: 'GET_DASHBOARD_FEED_SUCCESS',
+    response
+});
+
+export const getDashboardFeedFailure = (error) => ({
+    type: 'GET_DASHBOARD_FEED_FAILURE',
+    error
+});
+/**end of getDashboardFeed*/
+
+/** ADs */
+export const postAd = (data) => (
+    console.log('ad post data ++++++++++++', data),{
+    type: 'POST_AD',
+    data
+});
+
+export const postAdSuccess = (response) => (console.log('success+++++++++ ', response),{
+    type: 'POST_AD_SUCCESS',
+    response
+});
+
+export const postAdFailure = (error) => (
+    console.log("failure __++++++", error),{
+    type: 'POST_AD_FAILURE',
+    error
+});
+/**end of ADs*/

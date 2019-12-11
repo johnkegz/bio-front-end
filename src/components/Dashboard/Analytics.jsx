@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import LayOut from "./layOut";
 import "./stories.scss";
 import { connect } from "react-redux";
-import { getFeed, approve } from '../../redux/actions/actions';
+import { getDashboardFeed, approve } from '../../redux/actions/actions';
+import Nav, {SecondMenu} from './Nav';
 
 class Analytics extends Component {
     componentDidMount(){
-        this.props.getFeed();
+        this.props.getDashboardFeed();
     }
 
     handleApprove(id){
-        console.log("props", this.props)
        return this.props.approve(id);
+    }
+
+    handleDashBoardStory = (id) => {
+      console.log("+++_+_++++++++_+_+_+_+_+_+_+_+++ id", id);
+      return this.props.history.push('/story', {story: id})
     }
     displayStory(feedData){
         const feed = feedData.map(feed=>{
@@ -23,7 +28,7 @@ class Analytics extends Component {
                     alt=''
                   />
                 </div>
-                <div className='innerCardTwoContent'>
+                <div className='innerCardTwoContent' id="dashboardStory" onClick={() => this.handleDashBoardStory(feed.id)}>
                   {feed.title}
                 </div>
                 <div className='statusButtons'>
@@ -37,12 +42,13 @@ class Analytics extends Component {
     }
 
   render() {
-    console.log("state  +++++", this.state);
     return (
-      <div>
+      <div className="mainBody" style={{'backgroundColor': '#f5f5f5ff'}}>
+        <Nav />
         <LayOut>
           <div className='container'>
             <div className='firstCards'>
+            <SecondMenu />
               <div className='innerCardOne'>
                 <div className='innerCardOneBrown'>
                   <div className='storyCard'>View member</div>
@@ -64,10 +70,10 @@ class Analytics extends Component {
 }
 
 const mapStateToProps = state => ({
-    feedData: state.feedReducer.feedData
+    feedData: state.getDashBoardFeedReducer.data
   });
   const mapDispatchToProps = ({
-    getFeed,
+    getDashboardFeed,
     approve
   });
 

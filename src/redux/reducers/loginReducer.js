@@ -1,14 +1,18 @@
 import { 
     LOGIN,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    LOGIN_FAILURE,
+    REGISTER,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
     isAuthenticated: false,
     isFetching: false,
     data: [],
-    error: {}
+    error: {},
+    registerResponse: {},
 }
 
 export default (state = initialState, action) => {
@@ -30,6 +34,25 @@ export default (state = initialState, action) => {
                 ...state,
                 isLoading:false,
             }
+
+        //register
+        case REGISTER:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                isLoading: true,
+                registerResponse: action.response
+            }
+        case REGISTER_FAILURE:
+            return {
+                ...state,
+                isLoading:false,
+            }
+
         default:
             return state;
     }

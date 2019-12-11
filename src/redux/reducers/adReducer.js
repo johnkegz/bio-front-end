@@ -1,31 +1,27 @@
-import { 
-    FETCH_ONE_PERSON,
-    FETCH_ONE_PERSON_SUCCESS, 
-    FETCH_ONE_PERSON_FAILURE 
-} from '../actions/actionTypes';
 
 const initialState = {
     isFetching: false,
-    data: [],
+    data: {},
     error: {},
 };
 
 export default (state = initialState, action) => {
     switch(action.type){
-        case FETCH_ONE_PERSON:
+        //get dashboard feed
+        case 'POST_AD':
             return {
                 ...state,
                 isLoading: true
             };
 
-        case FETCH_ONE_PERSON_SUCCESS:
+        case 'POST_AD_SUCCESS':
             return {
                 ...state,
                 isLoading:false,
-                data: action.bio
+                data: action.response.data
             };
 
-        case FETCH_ONE_PERSON_FAILURE:
+        case 'POST_AD_FAILURE':
             return {
                 ...state,
                 isLoading:false,

@@ -18,6 +18,10 @@ import Login from './components/Login';
 import Feeds from './components/Forms/Feeds';
 import Management from './components/Dashboard/Management';
 import Analytics from './components/Dashboard/Analytics';
+import Register from './components/Regisiter';
+import FeedDashBoardStory from './components/Dashboard/DashBoardStory';
+import Ads from './components/Forms/Ads';
+import reactPortal from './components/reactPortal';
 
 const localStorageData = localStorage.jwtToken
 
@@ -39,7 +43,7 @@ if(localStorageData) {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component = {Home} />
+          {/* <Route exact path='/' component = {Home} /> */}
           {/* <Route exact path='/activities' component={Activities}/>
           <Route exact path='/objectives' component={Objectives}/>
           <Route exact path='/obituaries' component={Obituaries}/>
@@ -47,11 +51,16 @@ if(localStorageData) {
           <Route exact path='/board' component={Board}/>
           <Route exact path='/content/:id' component={Content}/>
           <Route exact path='/forms' component={Forms}/> */}
-          <Route exact path='/analytics' component={Analytics}/>
-          <Route exact path='/dashboard' component={DashBoard}/>
-          <Route exact path='/management' component={Management}/>
-          <Route exact path='/login' component={Login}/>
-          <Route exact path='/feed' component={Feeds}/>
+          <Route exact path='/' component={Login}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/analytics' component={Analytics}/>
+          <Route path='/dashboard' component={DashBoard}/>
+          <Route path='/management' component={Management}/>
+          <Route path='/register' component={Register}/>
+          <Route path='/feed' component={Feeds}/>
+          <Route path='/story' component={FeedDashBoardStory}/>
+          <Route path='/ads' component={Ads}/>
+          <Route path='/reactportal' component={reactPortal}/>
           {/* <Route componet={NotFound} /> */}
         </Switch>
       </Router>

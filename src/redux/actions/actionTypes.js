@@ -21,6 +21,12 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 /** end of Login */
 
+/**Register */
+export const REGISTER = 'REGISTER';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAILURE = 'REGISTER_FAILURE';
+/** end of register */
+
 /**Loug out user */
 export const LOG_OUT = 'LOG_OUT'
 /**Loug out user */

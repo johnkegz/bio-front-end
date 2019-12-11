@@ -65,7 +65,7 @@ import "./dashboard.css";
 const SideMenu = () => (
   <div className='leftPane'>
     <div className='sidebar-wrapper'>
-      <div className='sidebar-header'>sidebar header</div>
+      <div className='sidebar-header'>Admin</div>
 
       <div className='sidebar-container'>
         <div className='innerSideBar'>
