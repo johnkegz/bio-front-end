@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const url = 'https://bio-back.herokuapp.com';
-const url2 = 'http://localhost:8000';
+// const url = 'http://localhost:8000';
 class BioApi {
     static async fetchBio() {
         return axios.get(url);
@@ -46,6 +46,11 @@ class BioApi {
     //getDashboardFeed
     static async getDashboardFeed(){
         return axios.get(`${url}/dashboard/feed`);
+    }
+
+     //ADs
+     static async postAd(data){
+        return axios.post(`${url}/ads`, data);
     }
 }
 

@@ -8,6 +8,7 @@ import {
 import { watchLogin, watchLoginOut, watchRegister } from './loginSaga';
 import { watchHandleFeed, watchHandleGetFeed, watchHandleApprove } from './feedSaga';
 import { watchHandleHandleGetDashboardFeed } from './dashBoardfeed';
+import { watchHandlePostAd } from './adsaga';
 
 export default function* rootSagas() {
     yield all([
@@ -22,5 +23,6 @@ export default function* rootSagas() {
         watchHandleGetFeed(),
         watchHandleApprove(),
         watchHandleHandleGetDashboardFeed(),
+        watchHandlePostAd(),
     ]);
 }

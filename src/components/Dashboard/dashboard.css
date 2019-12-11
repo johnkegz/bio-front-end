@@ -122,6 +122,9 @@
       display:flex;
       justify-content: space-between;
   }
+  #dashboardStory{
+      cursor: pointer;
+  }
   @media only screen and (max-width: 900px) {
     .leftPane{
         /* display: none; */

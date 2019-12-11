@@ -13,6 +13,11 @@ class Analytics extends Component {
     handleApprove(id){
        return this.props.approve(id);
     }
+
+    handleDashBoardStory = (id) => {
+      console.log("+++_+_++++++++_+_+_+_+_+_+_+_+++ id", id);
+      return this.props.history.push('/story', {story: id})
+    }
     displayStory(feedData){
         const feed = feedData.map(feed=>{
             return (
@@ -23,7 +28,7 @@ class Analytics extends Component {
                     alt=''
                   />
                 </div>
-                <div className='innerCardTwoContent'>
+                <div className='innerCardTwoContent' id="dashboardStory" onClick={() => this.handleDashBoardStory(feed.id)}>
                   {feed.title}
                 </div>
                 <div className='statusButtons'>
@@ -38,7 +43,7 @@ class Analytics extends Component {
 
   render() {
     return (
-      <div className="mainBody" style={{'background-color': '#f5f5f5ff'}}>
+      <div className="mainBody" style={{'backgroundColor': '#f5f5f5ff'}}>
         <Nav />
         <LayOut>
           <div className='container'>

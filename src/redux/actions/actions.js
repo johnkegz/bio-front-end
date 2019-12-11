@@ -202,3 +202,22 @@ export const getDashboardFeedFailure = (error) => ({
     error
 });
 /**end of getDashboardFeed*/
+
+/** ADs */
+export const postAd = (data) => (
+    console.log('ad post data ++++++++++++', data),{
+    type: 'POST_AD',
+    data
+});
+
+export const postAdSuccess = (response) => (console.log('success+++++++++ ', response),{
+    type: 'POST_AD_SUCCESS',
+    response
+});
+
+export const postAdFailure = (error) => (
+    console.log("failure __++++++", error),{
+    type: 'POST_AD_FAILURE',
+    error
+});
+/**end of ADs*/
