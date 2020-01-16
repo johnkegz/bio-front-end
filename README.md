@@ -1,16 +1,6 @@
-# GREAT EDUCATORS ADMIN PLATFORM
+# Bio front end
 
 It creates a frontend platform for great eductors admin to manage the news feed
-
-### Features
-
-```
-* Sign up
-* SIgn in
-* Create story
-* Dashboard
-```
-
 
 ## Deployment
 

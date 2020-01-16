@@ -75,6 +75,20 @@ class Forms extends Component {
     return null;
   };
 
+  handleCreateBio = e => {
+    e.preventDefault();
+    // this.props.logOut();
+    window.location.href = "https://bio-front.herokuapp.com/forms";
+    return null;
+  };
+
+  handleDashboard = e => {
+    e.preventDefault();
+    // this.props.logOut();
+    window.location.href = "https://bio-front.herokuapp.com/analytics";
+    return null;
+  };
+
   renderEditor = feed => {
     return this.props.loginData.isAuthenticated ? (
       <div className='editor'>
@@ -120,6 +134,10 @@ class Forms extends Component {
       <div className='outerRoute'>
         <div className='formContainer'>
           <button onClick={this.handleLogOut} className="btn btn-info">logout</button>
+          <span>  </span>
+          <button onClick={this.handleCreateBio} className="btn btn-info">Create bio</button>
+          <span>  </span>
+          <button onClick={this.handleDashboard} className="btn btn-info">Dashboard</button>
           <form onSubmit={this.submitForm}>
             <textarea
               rows='4'
