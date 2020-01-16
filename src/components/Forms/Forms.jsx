@@ -78,23 +78,30 @@ class Forms extends Component {
         const { name, institution, knownfor, subject, bio } = this.state;
         return (
             <>
-            <button onClick = {this.handleLogOut}>logout</button>
+            <button onClick = {this.handleLogOut} className="btn btn-info">logout</button>
             <form>
-                <input type='text' name='name' placeholder='name' value={name} onChange={this.handleChange}/>
+                <input type='text' name='name' placeholder='name' value={name} onChange={this.handleChange} />
                 <input type='text' name='institution' placeholder='institution' value={institution} onChange={this.handleChange}/>
                 <input type='text' name='knownfor' placeholder='Known for' value={knownfor} onChange={this.handleChange}/>
                 <input type='text' name='subject' placeholder='subject' value={subject} onChange={this.handleChange}/>
-                <input
-                type="button" 
-                value="Submit" 
-                onClick={this.submitForm} 
-                />
+                <span>  </span>
+                
+                
                 <input
                     name="file-upload"
                     id="file-upload"
                     type="file"
                     onChange={this.uploadImage}
                     className="image-input"
+                    className="btn btn-info"
+                />
+
+                <span>  </span>
+                <input
+                type="button" 
+                value="Submit" 
+                onClick={this.submitForm}
+                className="btn btn-info" 
                 />
                 {this.renderEditor(bio)}
             </form>
@@ -104,9 +111,9 @@ class Forms extends Component {
   render() {
     return (
     <div>
-        <Header />
+        {/* <Header /> */}
             {this.renderForm()}
-        <Footer />
+        {/* <Footer /> */}
     </div>);
   }
 }
